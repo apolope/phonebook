@@ -24,6 +24,7 @@ Teste prático da Equipe Blue
     - Lombook
   - #### Frontend
     - Implementando
+    - Quinoa
 - Organização e limpeza do código
 - Cobertura de testes no front
 - Cobertura de testes de backend
@@ -65,3 +66,5 @@ Teste prático da Equipe Blue
 > **_USING LIQUIBASE_** - https://pt.quarkus.io/guides/liquibase
 
 > **_BCrypt_** - https://github.com/jeremyh/jBCrypt/blob/master/src/main/java/org/mindrot/BCrypt.java
+
+> **_Quinoa_** - https://docs.quarkiverse.io/quarkus-quinoa/dev/index.html

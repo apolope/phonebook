@@ -1,0 +1,491 @@
+{
+  "openapi" : "3.0.3",
+  "info" : {
+    "title" : "phonebook API",
+    "version" : "1.0-SNAPSHOT"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080",
+    "description" : "Auto generated value"
+  }, {
+    "url" : "http://0.0.0.0:8080",
+    "description" : "Auto generated value"
+  } ],
+  "tags" : [ {
+    "name" : "People"
+  }, {
+    "name" : "Security"
+  }, {
+    "name" : "User"
+  } ],
+  "paths" : {
+    "/people" : {
+      "get" : {
+        "tags" : [ "People" ],
+        "summary" : "Get all People",
+        "description" : "Get all People",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page number",
+          "schema" : {
+            "format" : "int32",
+            "default" : 0,
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "The size of page",
+          "schema" : {
+            "format" : "int32",
+            "default" : 10,
+            "type" : "integer"
+          }
+        }, {
+          "name" : "sortcolumn",
+          "in" : "query",
+          "description" : "The sort column",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "The People list",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/People"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "People" ],
+        "summary" : "Create People",
+        "description" : "Create People",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/People"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "The People created",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/People"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "People" ],
+        "summary" : "Delete People by id",
+        "description" : "Delete People by id",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/People"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "Executed",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "boolean"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "People not found"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/people/{id}" : {
+      "get" : {
+        "tags" : [ "People" ],
+        "summary" : "Get People by id",
+        "description" : "Get People by id",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The People id",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "The People",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/People"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "People not found"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "People" ],
+        "summary" : "Update People by id",
+        "description" : "Update People by id",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The People id",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "The People updated",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/People"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "People not found"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/security" : {
+      "post" : {
+        "tags" : [ "Security" ],
+        "summary" : "Login User",
+        "description" : "Login User",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "The User logged",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "User denied"
+          }
+        }
+      }
+    },
+    "/user" : {
+      "get" : {
+        "tags" : [ "User" ],
+        "summary" : "Get all User",
+        "description" : "Get all User",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page number",
+          "schema" : {
+            "format" : "int32",
+            "default" : 0,
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "The size of page",
+          "schema" : {
+            "format" : "int32",
+            "default" : 10,
+            "type" : "integer"
+          }
+        }, {
+          "name" : "sortcolumn",
+          "in" : "query",
+          "description" : "The sort column",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "The User list",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "User" ],
+        "summary" : "Create User",
+        "description" : "Create User",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "The User created",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/user/{id}" : {
+      "get" : {
+        "tags" : [ "User" ],
+        "summary" : "Get User by id",
+        "description" : "Get User by id",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The User id",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "The User",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "User" ],
+        "summary" : "Update User by id",
+        "description" : "Update User by id",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The User id",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "The User updated",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "User" ],
+        "summary" : "Delete User by id",
+        "description" : "Delete User by id",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The User id",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Executed",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "boolean"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "User not found"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "People" : {
+        "required" : [ "name", "email", "phone" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "name" : {
+            "pattern" : "\\S",
+            "type" : "string"
+          },
+          "email" : {
+            "pattern" : "\\S",
+            "type" : "string"
+          },
+          "phone" : {
+            "pattern" : "\\S",
+            "type" : "string"
+          },
+          "user" : {
+            "$ref" : "#/components/schemas/User"
+          }
+        }
+      },
+      "User" : {
+        "required" : [ "name", "email", "password" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "name" : {
+            "pattern" : "\\S",
+            "type" : "string"
+          },
+          "email" : {
+            "pattern" : "\\S",
+            "type" : "string"
+          },
+          "password" : {
+            "pattern" : "\\S",
+            "type" : "string"
+          },
+          "people" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/People"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "scheme" : "bearer"
+      },
+      "SecurityScheme" : {
+        "type" : "http",
+        "description" : "Authentication",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
+    }
+  }
+}

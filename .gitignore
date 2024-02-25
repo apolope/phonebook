@@ -41,3 +41,46 @@ nb-configuration.xml
 
 # Plugin directory
 /.quarkus/cli/plugins/
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/src/main/webui/dist
+/src/main/webui/tmp
+/src/main/webui/out-tsc
+/src/main/webui/bazel-out
+
+# Node
+/src/main/webui/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/src/main/webui/.angular/cache
+.sass-cache/
+/src/main/webui/connect.lock
+/src/main/webui/coverage
+/src/main/webui/libpeerconnection.log
+testem.log
+/src/main/webui/typings
+
+# System files
+.DS_Store
+Thumbs.db
