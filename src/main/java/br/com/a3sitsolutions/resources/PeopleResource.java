@@ -19,9 +19,7 @@ import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirement
 import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 @Path("/people")
 @Tag(name = "People")
@@ -150,8 +148,8 @@ public class PeopleResource {
             @APIResponse(responseCode = "404", description = "People not found")
     })
     @RolesAllowed("user")
-    public Set<People> delete(
-            People entity) {
-        return service.delete(entity) ? Collections.singleton(entity) : Collections.emptySet();
+    public Boolean delete(
+            Long id) {
+        return service.delete(id);
     }
 }

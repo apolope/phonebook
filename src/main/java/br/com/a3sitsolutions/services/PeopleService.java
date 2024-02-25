@@ -11,7 +11,7 @@ public interface PeopleService {
 
     People create(People people);
 
-    Boolean delete(People people);
+    Boolean delete(Long id);
 
     Collection<People> getAll(Page page);
 

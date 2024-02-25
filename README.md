@@ -23,8 +23,9 @@ Teste prático da Equipe Blue
     - JUnit 5
     - Lombook
   - #### Frontend
-    - Implementando
     - Quinoa
+    - OpenAPI Generator para injeção no Angular
+    - NGX Toaster
 - Organização e limpeza do código
 - Cobertura de testes no front
 - Cobertura de testes de backend
@@ -68,3 +69,14 @@ Teste prático da Equipe Blue
 > **_BCrypt_** - https://github.com/jeremyh/jBCrypt/blob/master/src/main/java/org/mindrot/BCrypt.java
 
 > **_Quinoa_** - https://docs.quarkiverse.io/quarkus-quinoa/dev/index.html
+
+> **_OpenAPI Generator_** - https://pguso.medium.com/using-openapi-generator-in-angular-projects-4c2813f55a91
+
+
+
+# Procedimentos
+## OpenAPI Angular
+### Instalar com npm
+> npm install @openapitools/openapi-generator-cli -g
+### Importar no ANgular
+>  npx openapi-generator-cli generate -i docs/openapi.yaml -g typescript-angular -o src/app/core/openapi --additional-properties=ngVersion=16.2.12,npmName=restClient,supportsES6=true,npmVersion=10.2.3,withInterfaces=true  --generate-alias-as-model

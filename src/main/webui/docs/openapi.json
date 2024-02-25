@@ -19,7 +19,7 @@
     "name" : "User"
   } ],
   "paths" : {
-    "/people" : {
+    "/api/people" : {
       "get" : {
         "tags" : [ "People" ],
         "summary" : "Get all People",
@@ -67,10 +67,7 @@
               }
             }
           }
-        },
-        "security" : [ {
-          "bearerAuth" : [ ]
-        } ]
+        }
       },
       "post" : {
         "tags" : [ "People" ],
@@ -96,10 +93,7 @@
               }
             }
           }
-        },
-        "security" : [ {
-          "bearerAuth" : [ ]
-        } ]
+        }
       },
       "delete" : {
         "tags" : [ "People" ],
@@ -107,9 +101,10 @@
         "description" : "Delete People by id",
         "requestBody" : {
           "content" : {
-            "application/json" : {
+            "text/plain" : {
               "schema" : {
-                "$ref" : "#/components/schemas/People"
+                "format" : "int64",
+                "type" : "integer"
               }
             }
           }
@@ -128,13 +123,10 @@
           "404" : {
             "description" : "People not found"
           }
-        },
-        "security" : [ {
-          "bearerAuth" : [ ]
-        } ]
+        }
       }
     },
-    "/people/{id}" : {
+    "/api/people/{id}" : {
       "get" : {
         "tags" : [ "People" ],
         "summary" : "Get People by id",
@@ -163,10 +155,7 @@
           "404" : {
             "description" : "People not found"
           }
-        },
-        "security" : [ {
-          "bearerAuth" : [ ]
-        } ]
+        }
       },
       "put" : {
         "tags" : [ "People" ],
@@ -196,13 +185,10 @@
           "404" : {
             "description" : "People not found"
           }
-        },
-        "security" : [ {
-          "bearerAuth" : [ ]
-        } ]
+        }
       }
     },
-    "/security" : {
+    "/api/security" : {
       "post" : {
         "tags" : [ "Security" ],
         "summary" : "Login User",
@@ -233,7 +219,7 @@
         }
       }
     },
-    "/user" : {
+    "/api/user" : {
       "get" : {
         "tags" : [ "User" ],
         "summary" : "Get all User",
@@ -316,7 +302,7 @@
         } ]
       }
     },
-    "/user/{id}" : {
+    "/api/user/{id}" : {
       "get" : {
         "tags" : [ "User" ],
         "summary" : "Get User by id",

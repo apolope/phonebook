@@ -11,10 +11,7 @@ import io.quarkus.panache.common.Page;
 import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.json.Json;
-import org.eclipse.microprofile.jwt.Claims;
 import org.eclipse.microprofile.jwt.JsonWebToken;
-
 import java.util.Collection;
 
 @ApplicationScoped
@@ -36,8 +33,8 @@ public class PeopleServiceImpl implements PeopleService {
     }
 
     @Override
-    public Boolean delete(People entity) {
-        People entityFinded = validated(repository.findById(entity.getId()));
+    public Boolean delete(Long id) {
+        People entityFinded = validated(repository.findById(id));
         return repository.deleteById(entityFinded.getId());
     }
 

@@ -13,7 +13,7 @@ tags:
 - name: Security
 - name: User
 paths:
-  /people:
+  /api/people:
     get:
       tags:
       - People
@@ -50,8 +50,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/People'
-      security:
-      - bearerAuth: []
     post:
       tags:
       - People
@@ -69,8 +67,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/People'
-      security:
-      - bearerAuth: []
     delete:
       tags:
       - People
@@ -78,9 +74,10 @@ paths:
       description: Delete People by id
       requestBody:
         content:
-          application/json:
+          text/plain:
             schema:
-              $ref: '#/components/schemas/People'
+              format: int64
+              type: integer
       responses:
         default:
           description: Executed
@@ -90,9 +87,7 @@ paths:
                 type: boolean
         "404":
           description: People not found
-      security:
-      - bearerAuth: []
-  /people/{id}:
+  /api/people/{id}:
     get:
       tags:
       - People
@@ -115,8 +110,6 @@ paths:
                 $ref: '#/components/schemas/People'
         "404":
           description: People not found
-      security:
-      - bearerAuth: []
     put:
       tags:
       - People
@@ -139,9 +132,7 @@ paths:
                 $ref: '#/components/schemas/People'
         "404":
           description: People not found
-      security:
-      - bearerAuth: []
-  /security:
+  /api/security:
     post:
       tags:
       - Security
@@ -161,7 +152,7 @@ paths:
                 $ref: '#/components/schemas/User'
         "403":
           description: User denied
-  /user:
+  /api/user:
     get:
       tags:
       - User
@@ -219,7 +210,7 @@ paths:
                 $ref: '#/components/schemas/User'
       security:
       - bearerAuth: []
-  /user/{id}:
+  /api/user/{id}:
     get:
       tags:
       - User
