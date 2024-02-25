@@ -1,0 +1,10 @@
+export * from './people.service';
+import { PeopleService } from './people.service';
+export * from './people.serviceInterface';
+export * from './security.service';
+import { SecurityService } from './security.service';
+export * from './security.serviceInterface';
+export * from './user.service';
+import { UserService } from './user.service';
+export * from './user.serviceInterface';
+export const APIS = [PeopleService, SecurityService, UserService];
