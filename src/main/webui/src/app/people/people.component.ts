@@ -33,7 +33,6 @@ export class PeopleComponent {
 
   getAllBooks() {
     this.service.getPeoples().subscribe((res) => {
-      console.log(res)
       this.peoples$ = res;
     });
   }

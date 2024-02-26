@@ -29,7 +29,7 @@ export interface PeopleServiceInterface {
      * Delete People by id
      * @param body 
      */
-    peopleDelete(body?: number, extraHttpRequestParams?: any): Observable<boolean>;
+    apiPeopleDelete(body?: number, extraHttpRequestParams?: any): Observable<boolean>;
 
     /**
      * Get all People
@@ -38,27 +38,27 @@ export interface PeopleServiceInterface {
      * @param size The size of page
      * @param sortcolumn The sort column
      */
-    peopleGet(page?: number, size?: number, sortcolumn?: Array<string>, extraHttpRequestParams?: any): Observable<Array<People>>;
+    apiPeopleGet(page?: number, size?: number, sortcolumn?: Array<string>, extraHttpRequestParams?: any): Observable<Array<People>>;
 
     /**
      * Get People by id
      * Get People by id
      * @param id The People id
      */
-    peopleIdGet(id: number, extraHttpRequestParams?: any): Observable<People>;
+    apiPeopleIdGet(id: number, extraHttpRequestParams?: any): Observable<People>;
 
     /**
      * Update People by id
      * Update People by id
      * @param id The People id
      */
-    peopleIdPut(id: number, extraHttpRequestParams?: any): Observable<People>;
+    apiPeopleIdPut(id: number, extraHttpRequestParams?: any): Observable<People>;
 
     /**
      * Create People
      * Create People
      * @param people 
      */
-    peoplePost(people?: People, extraHttpRequestParams?: any): Observable<People>;
+    apiPeoplePost(people?: People, extraHttpRequestParams?: any): Observable<People>;
 
 }

@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
-import {User, SecurityServiceInterface} from './core/openapi'
+import {User, SecurityServiceInterface, SecurityService} from './core/openapi'
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
-export class SecurityService {
+export class ServiceSecurity {
 
-  constructor(private api:  SecurityServiceInterface) { }
+  constructor(private api:  SecurityService,
+              private router: Router) { }
 
-  getToken(user: User): Observable<User> {
-    return this.api.securityPost(user)
+  login(user: User) {
+    return this.api.apiLogin(user)
+  }
+
+  logout(): void {
+    localStorage.removeItem("auth_token")
+    this.router.navigate(['/login']);
   }
 }

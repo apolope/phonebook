@@ -31,34 +31,34 @@ export interface UserServiceInterface {
      * @param size The size of page
      * @param sortcolumn The sort column
      */
-    userGet(page?: number, size?: number, sortcolumn?: Array<string>, extraHttpRequestParams?: any): Observable<Array<User>>;
+    apiUserGet(page?: number, size?: number, sortcolumn?: Array<string>, extraHttpRequestParams?: any): Observable<Array<User>>;
 
     /**
      * Delete User by id
      * Delete User by id
      * @param id The User id
      */
-    userIdDelete(id: number, extraHttpRequestParams?: any): Observable<boolean>;
+    apiUserIdDelete(id: number, extraHttpRequestParams?: any): Observable<boolean>;
 
     /**
      * Get User by id
      * Get User by id
      * @param id The User id
      */
-    userIdGet(id: number, extraHttpRequestParams?: any): Observable<User>;
+    apiUserIdGet(id: number, extraHttpRequestParams?: any): Observable<User>;
 
     /**
      * Update User by id
      * Update User by id
      * @param id The User id
      */
-    userIdPut(id: number, extraHttpRequestParams?: any): Observable<User>;
+    apiUserIdPut(id: number, extraHttpRequestParams?: any): Observable<User>;
 
     /**
      * Create User
      * Create User
      * @param user 
      */
-    userPost(user?: User, extraHttpRequestParams?: any): Observable<User>;
+    apiUserPost(user?: User, extraHttpRequestParams?: any): Observable<User>;
 
 }

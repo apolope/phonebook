@@ -3,7 +3,6 @@ package br.com.a3sitsolutions.services;
 import br.com.a3sitsolutions.models.User;
 import io.quarkus.panache.common.Page;
 import io.quarkus.panache.common.Sort;
-
 import java.util.Collection;
 
 public interface UserService {

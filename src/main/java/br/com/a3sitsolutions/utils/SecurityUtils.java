@@ -3,7 +3,6 @@ package br.com.a3sitsolutions.utils;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.time.Duration;
-
 import br.com.a3sitsolutions.models.User;
 import io.smallrye.jwt.build.Jwt;
 import javax.crypto.*;
@@ -44,6 +43,7 @@ public class SecurityUtils {
                 .groups("user")
                 .claim("email", user.getEmail())
                 .claim("id", user.getId())
+                .claim("name", user.getName())
                 .expiresIn(Duration.ofMinutes(10))
                 .sign();
     }

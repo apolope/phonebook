@@ -7,7 +7,6 @@ import io.quarkus.panache.common.Sort;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
-import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -33,9 +32,6 @@ public class PeopleResource {
 
     @Inject
     PeopleService service;
-
-    @Inject
-    JsonWebToken jwt;
 
     @GET
     @Operation(

@@ -27,8 +27,8 @@ export interface SecurityServiceInterface {
     /**
      * Login User
      * Login User
-     * @param user 
+     * @param user User
      */
-    securityPost(user?: User, extraHttpRequestParams?: any): Observable<User>;
+    apiSecurityPost(user: User, extraHttpRequestParams?: any): Observable<string>;
 
 }

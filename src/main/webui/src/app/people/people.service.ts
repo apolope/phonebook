@@ -10,11 +10,11 @@ export class ServicePeople {
   constructor(private api: PeopleService) { }
 
   getPeoples(): Observable<People[]> {
-    return this.api.peopleGet()
+    return this.api.apiPeopleGet()
   }
 
   getPeople(id: number): Observable<People> {
-    return this.api.peopleIdGet(id)
+    return this.api.apiPeopleIdGet(id)
   }
 
   updatePeople(id: number, people: People): Observable<People> {
@@ -23,6 +23,6 @@ export class ServicePeople {
   }
 
   deletePeople(id: number): Observable<Boolean> {
-    return this.api.peopleDelete(id)
+    return this.api.apiPeopleDelete(id)
   }
 }

@@ -1,4 +1,4 @@
-<div class="toolbar" role="banner">
+<div class="toolbar" role="banner" *ngIf="!isLoginPage">
     <img
             width="40"
             alt="Phoneooker Logo"
@@ -7,14 +7,14 @@
     <span [routerLink]="['/']" class="cursor">Phonebook</span>
     <div class="spacer"></div>
     <div style="padding: 20px;">
-        Apolônio Serafim da Silva Segundo
+        {{ userName }}
     </div>
     <div style="padding-left: 30px; padding-right: 20px;">
-        Logout
+        <button (click)="onLogout()">Logout</button>
     </div>
 </div>
 
-<div class="content" role="main">
+<div class="content" role="main" *ngIf="!isLoginPage">
     <svg
             id="clouds"
             alt="Gray Clouds Background"

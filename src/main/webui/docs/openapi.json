@@ -67,7 +67,10 @@
               }
             }
           }
-        }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
       },
       "post" : {
         "tags" : [ "People" ],
@@ -93,7 +96,10 @@
               }
             }
           }
-        }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
       },
       "delete" : {
         "tags" : [ "People" ],
@@ -123,7 +129,10 @@
           "404" : {
             "description" : "People not found"
           }
-        }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
       }
     },
     "/api/people/{id}" : {
@@ -155,7 +164,10 @@
           "404" : {
             "description" : "People not found"
           }
-        }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
       },
       "put" : {
         "tags" : [ "People" ],
@@ -185,7 +197,10 @@
           "404" : {
             "description" : "People not found"
           }
-        }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
       }
     },
     "/api/security" : {
@@ -194,21 +209,23 @@
         "summary" : "Login User",
         "description" : "Login User",
         "requestBody" : {
+          "description" : "User",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/User"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "default" : {
-            "description" : "The User logged",
+            "description" : "The JWT token",
             "content" : {
               "text/plain" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/User"
+                  "type" : "string"
                 }
               }
             }
