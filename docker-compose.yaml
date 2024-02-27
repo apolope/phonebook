@@ -1,0 +1,35 @@
+version: "3.2"
+
+services:
+  quarkus-service:
+    build:
+      context: ./
+      dockerfile: src/main/docker/Dockerfile.jvm
+    image: a3s/phonebook
+    ports:
+      - "8080:8080"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    networks:
+      - quarkus
+
+  mariadb:
+    image: mariadb:10.2
+    environment:
+      MYSQL_ROOT_PASSWORD: R3c1f3!
+      MYSQL_DATABASE: phonebook
+      MYSQL_USER: root
+      MYSQL_PASSWORD: R3c1f3!
+    logging:
+      driver: syslog
+      options:
+        tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    restart: on-failure
+    volumes:
+      - ${PWD}/mariadb:/var/lib/mysql
+    networks:
+      - quarkus
+
+networks:
+  quarkus:

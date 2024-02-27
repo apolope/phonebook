@@ -39,10 +39,17 @@ Teste prático da Equipe Blue
 - Dockerfile ou docker-compose da aplicação
 - Quarkus
 
-## Como executar o backend
+## Como executar o projeto
 - > mvn quarkus:dev
 - Abrir no navegador a interface de Dev do Quarkus em http://localhost:8080/q/dev
+- Abrir no navegador do frontend http://localhost:8080/
 
+## Como executar o projeto com docker e docker-compose
+- > mvn clean package
+- > docker compose up -d
+- Abrir no navegador a interface de Dev do Quarkus em http://localhost:8080/q/dev
+- Abrir no navegador do frontend http://localhost:8080/
+- 
 ## Documentação utilizadas para consulta
 > **_RESTEASY CLASSIC_** - https://quarkus.io/guides/resteasy
 
