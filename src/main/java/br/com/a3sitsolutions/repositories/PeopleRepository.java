@@ -7,6 +7,7 @@ import io.quarkus.panache.common.Page;
 import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
@@ -48,7 +49,15 @@ public class PeopleRepository implements PanacheRepository<People> {
 
     @Transactional
     public People update(People people) {
-        em.merge(people);
-        return people;
+
+        People pp = em.find(People.class, people.getId());
+
+        if (pp != null) {
+            pp.setName(people.getName());
+            pp.setEmail(people.getEmail());
+            pp.setPhone(people.getPhone());
+        }
+
+        return pp;
     }
 }

@@ -11,6 +11,7 @@ import io.quarkus.panache.common.Page;
 import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 import java.util.Collection;
 
@@ -32,6 +33,7 @@ public class PeopleServiceImpl implements PeopleService {
         return repository.create(entity);
     }
 
+    @Transactional
     @Override
     public Boolean delete(Long id) {
         People entityFinded = validated(repository.findById(id));

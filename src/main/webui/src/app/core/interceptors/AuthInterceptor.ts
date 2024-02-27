@@ -31,6 +31,5 @@ export class AuthInterceptor implements HttpInterceptor {
             this.router.navigate(['/login']);
         }
 
-
     }
 }

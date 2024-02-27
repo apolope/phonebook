@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd, Event as RouterEvent } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import {ServiceAuth} from "./auth/auth.service";
+import { ServiceAuth } from "./auth/auth.service";
 
 @Component({
   selector: 'app-root',

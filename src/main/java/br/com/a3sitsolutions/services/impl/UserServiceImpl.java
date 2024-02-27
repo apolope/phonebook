@@ -11,6 +11,8 @@ import io.quarkus.panache.common.Page;
 import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
+
 import java.util.Collection;
 
 @ApplicationScoped
@@ -25,6 +27,7 @@ public class UserServiceImpl implements UserService {
         return repository.create(entity);
     }
 
+    @Transactional
     @Override
     public Boolean delete(Long id) {
         User entityFinded = validated(repository.findById(id));

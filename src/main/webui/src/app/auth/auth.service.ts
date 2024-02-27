@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
-import {SecurityService, User} from '../core/openapi';
+import { User } from '../core/openapi';
 import { Router } from '@angular/router';
-import {ServiceSecurity} from "../security.service";
+import { ServiceSecurity } from "../security.service";
 
 @Injectable({
   providedIn: 'root'

@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormGroup, FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import {ServicePeople} from "../people.service";
+import { ServicePeople } from "../people.service";
+import { People } from "../../core/openapi";
 
 @Component({
   selector: 'app-update-people',
@@ -15,7 +16,7 @@ import {ServicePeople} from "../people.service";
 export class UpdatePeopleComponent {
   FormData!: FormGroup;
   isloading! : boolean;
-  book$!: any;
+  people$!: People;
   id!: any;
 
   constructor(
@@ -29,38 +30,34 @@ export class UpdatePeopleComponent {
     this.route.paramMap.subscribe((params) => {
       this.id = params.get('id');
       this.service.getPeople(this.id).subscribe((res) => {
-        this.book$ = res;
+        this.people$ = res;
         this.FormData.patchValue(this.updateFormValues());
       });
     });
 
     this.FormData = this.builder.group({
-      author: new FormControl(''),
-      country: new FormControl(''),
-      language: new FormControl(''),
-      pages: new FormControl(''),
-      title: new FormControl(''),
-      year: new FormControl(''),
+        id: new FormControl(''),
+      name: new FormControl(''),
+      email: new FormControl(''),
+      phone: new FormControl(''),
     });
   }
 
     onSubmit(formData: any) {
-        this.service.updatePeople(this.id, formData).subscribe((res) => {
-            this.toastr.success('Updated 🙌');
+        this.service.updatePeople(formData).then(r => {
+            this.toastr.success('Atualizado');
             setTimeout(() => {
                 location.href = '/'
             }, 2000);
-        });
+        })
     }
 
     updateFormValues() {
         return {
-            author: this.book$.author,
-            country: this.book$.country,
-            language: this.book$.language,
-            pages: this.book$.pages,
-            title: this.book$.title,
-            year: this.book$.year,
+            id: this.people$.id,
+            name: this.people$.name,
+            email: this.people$.email,
+            phone: this.people$.phone,
         };
     }
 }

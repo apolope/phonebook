@@ -1,6 +1,7 @@
 package br.com.a3sitsolutions.resources;
 
 import br.com.a3sitsolutions.models.People;
+import br.com.a3sitsolutions.models.User;
 import br.com.a3sitsolutions.services.PeopleService;
 import io.quarkus.panache.common.Page;
 import io.quarkus.panache.common.Sort;
@@ -125,13 +126,15 @@ public class PeopleResource {
     public People update(
             @Parameter(description = "The People id")
             @PathParam("id")
-            Long id
+            Long id,
+            People entity
     ) {
-        People entity = service.findById(id);
+        entity.setId(id);
         return service.update(entity);
     }
 
     @DELETE
+    @Path("/{id}")
     @Operation(
             summary = "Delete People by id",
             description = "Delete People by id"
@@ -145,6 +148,8 @@ public class PeopleResource {
     })
     @RolesAllowed("user")
     public Boolean delete(
+            @Parameter(description = "The People id")
+            @PathParam("id")
             Long id) {
         return service.delete(id);
     }

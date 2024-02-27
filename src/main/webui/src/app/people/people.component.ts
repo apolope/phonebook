@@ -54,7 +54,7 @@ export class PeopleComponent {
   }
 
   onUpdate(id: any) {
-    this.router.navigate([`/update/${id}`]);
+    this.router.navigate([`/update-people/${id}`]);
   }
 }
 

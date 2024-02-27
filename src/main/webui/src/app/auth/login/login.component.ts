@@ -2,9 +2,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import { Router } from  '@angular/router';
 import { ServiceAuth } from  '../auth.service';
 import { Component, OnInit } from "@angular/core";
-import {CommonModule, NgClass} from "@angular/common";
-import {catchError} from "rxjs/operators";
-import {of} from "rxjs";
+import { CommonModule, NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-login',

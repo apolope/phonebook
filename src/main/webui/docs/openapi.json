@@ -100,39 +100,6 @@
         "security" : [ {
           "bearerAuth" : [ ]
         } ]
-      },
-      "delete" : {
-        "tags" : [ "People" ],
-        "summary" : "Delete People by id",
-        "description" : "Delete People by id",
-        "requestBody" : {
-          "content" : {
-            "text/plain" : {
-              "schema" : {
-                "format" : "int64",
-                "type" : "integer"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "Executed",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "boolean"
-                }
-              }
-            }
-          },
-          "404" : {
-            "description" : "People not found"
-          }
-        },
-        "security" : [ {
-          "bearerAuth" : [ ]
-        } ]
       }
     },
     "/api/people/{id}" : {
@@ -183,6 +150,15 @@
             "type" : "integer"
           }
         } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/People"
+              }
+            }
+          }
+        },
         "responses" : {
           "default" : {
             "description" : "The People updated",
@@ -190,6 +166,39 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/People"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "People not found"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "People" ],
+        "summary" : "Delete People by id",
+        "description" : "Delete People by id",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The People id",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "Executed",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "boolean"
                 }
               }
             }

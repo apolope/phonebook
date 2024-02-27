@@ -17,12 +17,15 @@ export class ServicePeople {
     return this.api.apiPeopleIdGet(id)
   }
 
-  updatePeople(id: number, people: People): Observable<People> {
-    return new Observable<People>()
-    // return this.api.peopleIdPut(id, people)
+  updatePeople(people: People) {
+    return this.api.updatePeople(people)
   }
 
   deletePeople(id: number): Observable<Boolean> {
     return this.api.apiPeopleDelete(id)
+  }
+
+  createPeople(people:People) {
+    return this.api.criarPeople(people)
   }
 }

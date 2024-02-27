@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs'
-import {User, SecurityServiceInterface, SecurityService} from './core/openapi'
-import {Router} from "@angular/router";
+import { User, SecurityService } from './core/openapi'
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
