@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ServicePeople } from "./people.service";
 import { AddPeopleComponent } from "./add-people/add-people.component";
 import { UpdatePeopleComponent } from "./update-people/update-people.component";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-people',
@@ -14,6 +15,7 @@ import { UpdatePeopleComponent } from "./update-people/update-people.component";
     RouterModule,
     AddPeopleComponent,
     UpdatePeopleComponent,
+    FormsModule
   ],
   providers: [ServicePeople],
   templateUrl: './people.component.html',
@@ -21,6 +23,8 @@ import { UpdatePeopleComponent } from "./update-people/update-people.component";
 })
 export class PeopleComponent {
   public peoples$: any;
+  public searchTerm: string = '';
+
   constructor(
       private service: ServicePeople,
       private router: Router,
@@ -55,6 +59,12 @@ export class PeopleComponent {
 
   onUpdate(id: any) {
     this.router.navigate([`/update-people/${id}`]);
+  }
+
+  get filteredPeoples() {
+    return this.peoples$?.filter((people: any) =>
+        people.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 }
 
