@@ -4,15 +4,15 @@ Teste prático da Equipe Blue
 
 ## Requisitos
 
-- Regras de negócio e validações
+- [x] Regras de negócio e validações
   - Utilização de annotation de validation nos modelos @NotBlank
   - Validação de login com criptografia utilizando BCrypt e senha em hash com salt
   - Relacionamento de possesão da informação
   - Tenancy de visualização baseado no token JWT
-- Utilização de padrões de projeto (repositórios, services, controllers, interfaces, injeção de dependência, etc.) dentro do contexto da aplicação
-- RESTful API stateless
-- Utilização do Spring Boot, Spring Security e Hibernate/JPA
-- Utilização de libs e frameworks acessórios
+- [x] Utilização de padrões de projeto (repositórios, services, controllers, interfaces, injeção de dependência, etc.) dentro do contexto da aplicação
+- [x] RESTful API stateless
+- [x] Utilização do Spring Boot, Spring Security e Hibernate/JPA
+- [x] Utilização de libs e frameworks acessórios
   - #### Backend
     - Resteasy Client
     - Resteasy Jackson
@@ -28,18 +28,18 @@ Teste prático da Equipe Blue
     - NGX Toaster
     - JWT Decode
     - Moment
-- Organização e limpeza do código
-- Cobertura de testes no front (gap do projeto)
-- Cobertura de testes de backend (gap do projeto)
-- Utilização forte de componentes no frontend
-- Modelo de casos de uso
-- Modelo do banco de dados
+- [x] Organização e limpeza do código
+- [ ] Cobertura de testes no front (gap do projeto)
+- [ ] Cobertura de testes de backend (gap do projeto)
+- [ ] Utilização forte de componentes no frontend (gap do projeto)
+- [x] Modelo de casos de uso
+- [x] Modelo do banco de dados
   - Utilizado liquibase para definição e/ou população dos modelos
 
 ## Diferenciais
-- Utilização e configuração do swagger
-- Dockerfile ou docker-compose da aplicação
-- Quarkus
+- [x] Utilização e configuração do swagger
+- [x] Dockerfile ou docker-compose da aplicação
+- [x] Quarkus
 
 ## Como executar o projeto
 - Instalar o Java 17
