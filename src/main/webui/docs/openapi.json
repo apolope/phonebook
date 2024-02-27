@@ -39,7 +39,7 @@
           "description" : "The size of page",
           "schema" : {
             "format" : "int32",
-            "default" : 10,
+            "default" : 100,
             "type" : "integer"
           }
         }, {
@@ -265,7 +265,7 @@
           "description" : "The size of page",
           "schema" : {
             "format" : "int32",
-            "default" : 10,
+            "default" : 100,
             "type" : "integer"
           }
         }, {

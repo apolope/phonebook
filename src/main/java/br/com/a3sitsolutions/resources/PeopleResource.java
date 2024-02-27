@@ -1,7 +1,6 @@
 package br.com.a3sitsolutions.resources;
 
 import br.com.a3sitsolutions.models.People;
-import br.com.a3sitsolutions.models.User;
 import br.com.a3sitsolutions.services.PeopleService;
 import io.quarkus.panache.common.Page;
 import io.quarkus.panache.common.Sort;
@@ -53,7 +52,7 @@ public class PeopleResource {
             int page,
 
             @Parameter(description = "The size of page")
-            @DefaultValue("10")
+            @DefaultValue("100")
             @QueryParam("size")
             int size,
 

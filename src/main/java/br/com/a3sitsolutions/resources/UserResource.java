@@ -52,7 +52,7 @@ public class UserResource {
             int page,
 
             @Parameter(description = "The size of page")
-            @DefaultValue("10")
+            @DefaultValue("100")
             @QueryParam("size")
             int size,
 
