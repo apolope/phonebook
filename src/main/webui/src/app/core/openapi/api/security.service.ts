@@ -35,7 +35,7 @@ import axios from "axios"
 })
 export class SecurityService implements SecurityServiceInterface {
 
-    protected basePath = 'http://localhost:8080';
+    protected basePath = 'http://phonebook:8080';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;
@@ -164,7 +164,7 @@ export class SecurityService implements SecurityServiceInterface {
     }
 
     public apiLogin(user: User) {
-        return axios.post<string>(`http://localhost:8080/api/security`, user);
+        return axios.post<string>(`http://phonebook:8080/api/security`, user);
     }
 
 }

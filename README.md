@@ -40,12 +40,18 @@ Teste prático da Equipe Blue
 - Quarkus
 
 ## Como executar o projeto
+- Instalar o Java 17
+- Instalar o Node 18
+- Instalar o Maven 3
+- > npm install
+- > mvn clean package
+
+### Executar com o maven
 - > mvn quarkus:dev
 - Abrir no navegador a interface de Dev do Quarkus em http://localhost:8080/q/dev
 - Abrir no navegador do frontend http://localhost:8080/
 
-## Como executar o projeto com docker e docker-compose
-- > mvn clean package
+### Executar com maven e docker com docker-compose
 - > docker compose up -d
 - Abrir no navegador a interface de Dev do Quarkus em http://localhost:8080/q/dev
 - Abrir no navegador do frontend http://localhost:8080/

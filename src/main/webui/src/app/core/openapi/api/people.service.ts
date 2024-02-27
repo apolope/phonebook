@@ -37,7 +37,7 @@ import axios from "axios"
 })
 export class PeopleService implements PeopleServiceInterface {
 
-    protected basePath = 'http://localhost:8080';
+    protected basePath = 'http://phonebook:8080';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;
@@ -397,7 +397,7 @@ export class PeopleService implements PeopleServiceInterface {
             }
         };
 
-        return axios.put<People>(`http://localhost:8080/api/people/${people.id}`, people, config);
+        return axios.put<People>(`http://phonebook:8080/api/people/${people.id}`, people, config);
     }
 
     /**
@@ -481,7 +481,7 @@ export class PeopleService implements PeopleServiceInterface {
             }
         };
 
-        return axios.post<string>(`http://localhost:8080/api/people`, people, config);
+        return axios.post<string>(`http://phonebook:8080/api/people`, people, config);
     }
 
 }
