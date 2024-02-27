@@ -40,12 +40,12 @@ export class PeopleComponent {
   onDelete(id: any) {
     this.service.deletePeople(id).subscribe((res) => {
       if (res) {
-        this.toastr.success('Deleted Successfully');
+        this.toastr.success('Deletado');
         setTimeout(() => {
           location.reload();
         }, 2000);
       } else {
-        this.toastr.error('Deleted Fail');
+        this.toastr.error('Falhou');
         setTimeout(() => {
           location.reload();
         }, 2000);
