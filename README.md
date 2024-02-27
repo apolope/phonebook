@@ -26,9 +26,11 @@ Teste prático da Equipe Blue
     - Quinoa
     - OpenAPI Generator para injeção no Angular
     - NGX Toaster
+    - JWT Decode
+    - Moment
 - Organização e limpeza do código
-- Cobertura de testes no front
-- Cobertura de testes de backend
+- Cobertura de testes no front (gap do projeto)
+- Cobertura de testes de backend (gap do projeto)
 - Utilização forte de componentes no frontend
 - Modelo de casos de uso
 - Modelo do banco de dados
@@ -91,5 +93,5 @@ Teste prático da Equipe Blue
 ## OpenAPI Angular
 ### Instalar com npm
 > npm install @openapitools/openapi-generator-cli -g
-### Importar no ANgular
+### Importar no Angular
 >  npx openapi-generator-cli generate -i docs/openapi.yaml -g typescript-angular -o src/app/core/openapi --additional-properties=ngVersion=16.2.12,npmName=restClient,supportsES6=true,npmVersion=10.2.3,withInterfaces=true  --generate-alias-as-model
