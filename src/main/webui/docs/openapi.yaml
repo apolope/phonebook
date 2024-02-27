@@ -4,7 +4,7 @@ info:
   title: phonebook API
   version: 1.0-SNAPSHOT
 servers:
-- url: http://phonebook:8080
+- url: http://localhost:8080
   description: Auto generated value
 - url: http://0.0.0.0:8080
   description: Auto generated value

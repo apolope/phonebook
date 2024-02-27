@@ -27,7 +27,7 @@ import { Configuration }                                     from '../configurat
 import {
     UserServiceInterface
 } from './user.serviceInterface';
-
+import { environment } from '../../../../environments/environment'
 
 
 @Injectable({
@@ -35,7 +35,7 @@ import {
 })
 export class UserService implements UserServiceInterface {
 
-    protected basePath = 'http://phonebook:8080';
+    protected basePath = environment.apiUrl;
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;

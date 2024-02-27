@@ -27,15 +27,15 @@ import { Configuration }                                     from '../configurat
 import {
     SecurityServiceInterface
 } from './security.serviceInterface';
-
 import axios from "axios"
+import { environment } from '../../../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class SecurityService implements SecurityServiceInterface {
 
-    protected basePath = 'http://phonebook:8080';
+    protected basePath = environment.apiUrl;
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;
@@ -164,7 +164,7 @@ export class SecurityService implements SecurityServiceInterface {
     }
 
     public apiLogin(user: User) {
-        return axios.post<string>(`http://phonebook:8080/api/security`, user);
+        return axios.post<string>(`${environment.apiUrl}/api/security`, user);
     }
 
 }
